@@ -70,7 +70,7 @@ export default function Navbar() {
             {isMenuOpen && (
                 <div
                     className={`absolute top-full left-0 w-full ${navBackground} ${textClass}
-                      flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
+                flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
                 >
                     <Link
                         href="/about"
@@ -93,9 +93,8 @@ export default function Navbar() {
                     >
                         Contact
                     </Link>
-                    <div onClick={() => setIsMenuOpen(false)}>
-                        <ThemeToggle />
-                    </div>
+                    {/* Removed the onClick wrapper for ThemeToggle */}
+                    <ThemeToggle />
                 </div>
             )}
         </nav>
