@@ -24,7 +24,7 @@ export default function Home() {
         theme === 'dark'
             ? 'bg-gray-700 text-white hover:bg-gray-600'
             : 'bg-gray-200 text-black hover:bg-gray-300'
-    // A subtle card background
+    // Card styles for Background/Skills and Projects
     const cardBg = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
     const cardShadow = 'shadow-lg hover:shadow-xl transition'
 
@@ -41,14 +41,13 @@ export default function Home() {
                     />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                    Crafting AI Solutions &amp; Cloud Architecture
+                    Hi, I&apos;m Branislav Taskovikj
                 </h1>
-                <p className="text-gray-500 text-lg md:text-xl mb-8">
-                    Senior Data Scientist and AWS Solutions Architect specializing in AI/ML
-                    innovations and scalable cloud architecture.
-                </p>
+                <h2 className="text-xl text-gray-500 mb-8">
+                    Senior Data Scientist | Cloud Solutions Architect | Ex AWS Certified
+                </h2>
                 <div className="space-x-4">
-                    <Link href="/contact" className={`${btnBase} ${btnPrimary}`}>
+                    <Link href="/hire" className={`${btnBase} ${btnPrimary}`}>
                         Hire Me
                     </Link>
                     <Link href="/cv.pdf" download className={`${btnBase} ${btnPrimary}`}>
@@ -58,20 +57,28 @@ export default function Home() {
             </section>
 
             {/* Background & Skills Section */}
-            <section className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 py-16 border-t border-gray-300 dark:border-gray-700 px-4">
+            <section
+                id="about"
+                className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 py-16 border-t border-gray-300 dark:border-gray-700 px-4"
+            >
                 {/* Background Card */}
-                <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4`}>
+                <div
+                    className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4 fade-in-up`}
+                    style={{ animationDelay: '0.2s' }}
+                >
                     <h3 className="text-2xl font-semibold">Background</h3>
                     <p className="leading-relaxed text-gray-400">
-                        I&apos;m a seasoned data scientist and cloud architect with a strong background in building
-                        machine learning pipelines, architecting scalable cloud solutions, and delivering insights through
-                        data-driven analytics. My expertise spans AWS, Python, and MLOps, with a proven track record of
-                        leveraging advanced analytics to solve real-world business challenges.
+                        I&apos;m a seasoned data scientist and cloud architect with a strong background in building machine learning pipelines,
+                        architecting scalable cloud solutions, and delivering insights through data-driven analytics.
+                        My expertise spans AWS, Python, and MLOps, with a proven track record of leveraging advanced analytics to solve real-world challenges.
                     </p>
                 </div>
 
                 {/* Skills Card */}
-                <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4`}>
+                <div
+                    className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4 fade-in-up`}
+                    style={{ animationDelay: '0.4s' }}
+                >
                     <h3 className="text-2xl font-semibold">Skills &amp; Expertise</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-400">
                         <div className="space-y-1">
@@ -98,22 +105,22 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Learn More Button */}
-            <div className="max-w-5xl w-full flex justify-center pb-16">
+            {/* Centered About Button */}
+            <div className="max-w-5xl w-full flex justify-center pb-16 fade-in-up" style={{ animationDelay: '0.6s' }}>
                 <Link href="/about" className={`${btnBase} ${btnPrimary}`}>
                     Learn More About Me
                 </Link>
             </div>
 
             {/* Featured Projects Section */}
-            <section className="max-w-5xl w-full py-16 border-t border-gray-300 dark:border-gray-700 px-4">
+            <section className="max-w-5xl w-full py-16 border-t border-gray-300 dark:border-gray-700 px-4 fade-in-up" style={{ animationDelay: '0.8s' }}>
                 <h3 className="text-3xl font-semibold mb-2 text-center">Featured Projects</h3>
                 <p className="text-center text-gray-400 mb-8">
                     A selection of my recent projects in AI, ML, and full-stack development
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Project Card #1 */}
-                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3`}>
+                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3 fade-in-up`} style={{ animationDelay: '1.0s' }}>
                         <h4 className="text-xl font-semibold">Stardex - Explore GitHub Stars Intelligently</h4>
                         <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
               Featured Project
@@ -123,25 +130,24 @@ export default function Home() {
                         </p>
                     </div>
                     {/* Project Card #2 */}
-                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3`}>
+                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3 fade-in-up`} style={{ animationDelay: '1.2s' }}>
                         <h4 className="text-xl font-semibold">PolyAgent Research Intelligence</h4>
                         <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
               Featured Project
             </span>
                         <p className="text-sm text-gray-400">
-                            A modular, multi-agent AI research and report-generation platform, providing insights
-                            into advanced ML models.
+                            A modular, multi-agent AI research and report-generation platform, providing insights into advanced ML models.
                         </p>
                     </div>
                     {/* Project Card #3 */}
-                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3`}>
+                    <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3 fade-in-up`} style={{ animationDelay: '1.4s' }}>
                         <h4 className="text-xl font-semibold">AIScout</h4>
                         <p className="text-sm text-gray-400">
                             Real-time AI/ML platform analyzing performance metrics and data to guide sports scouting decisions.
                         </p>
                     </div>
                 </div>
-                <div className="mt-8 text-center">
+                <div className="mt-8 text-center fade-in-up" style={{ animationDelay: '1.6s' }}>
                     <Link href="/projects" className={`${btnBase} ${btnPrimary}`}>
                         View All Projects
                     </Link>

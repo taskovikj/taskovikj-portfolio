@@ -1,6 +1,6 @@
 'use client'
 import { useTheme } from 'next-themes'
-import {JSX, useEffect, useState} from 'react'
+import { useEffect, useState, JSX } from 'react'
 import {
     FaRegCopy,
     FaEnvelope,
@@ -31,10 +31,10 @@ export default function ContactPage() {
 
     // Container styling based on theme
     const containerClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
-
-    // For the row cards, use a lighter background for light theme.
-    // We'll use bg-gray-50 in light mode and bg-gray-800 in dark mode.
+    // Use a light background for rows: bg-gray-50 in light mode and bg-gray-800 in dark mode
     const rowClass = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'
+    // Border for each row
+    const rowBorder = theme === 'dark' ? 'border border-gray-700' : 'border border-gray-200'
 
     // Handler to copy text to clipboard
     const handleCopy = async (text: string) => {
@@ -47,23 +47,28 @@ export default function ContactPage() {
         }
     }
 
-    // Reusable row component
+    // Reusable row component with animation
     const InfoRow = ({
                          icon,
                          label,
                          copyValue,
                          isLink = false,
                          link,
+                         delay = '0s',
                      }: {
         icon: JSX.Element
         label: string
         copyValue: string
         isLink?: boolean
         link?: string
+        delay?: string
     }) => {
         return (
-            <div className={`flex items-center justify-between p-4 ${rowClass} rounded-md w-full max-w-md`}>
-                <div className="flex items-center space-x-2">
+            <div
+                className={`flex items-center justify-between p-4 ${rowClass} ${rowBorder} rounded-md w-full max-w-md transition hover:shadow-md fade-in-up`}
+                style={{ animationDelay: delay }}
+            >
+                <div className="flex items-center space-x-3">
                     {icon}
                     <span className="font-medium">{label}</span>
                 </div>
@@ -72,13 +77,13 @@ export default function ContactPage() {
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="cursor-pointer hover:text-gray-500 dark:hover:text-gray-400"
+                        className="cursor-pointer text-lg"
                     >
-                        <FaExternalLinkAlt size={18} />
+                        <FaExternalLinkAlt />
                     </a>
                 ) : (
-                    <button onClick={() => handleCopy(copyValue)}>
-                        <FaRegCopy size={18} className="cursor-pointer hover:text-gray-500 dark:hover:text-gray-400" />
+                    <button onClick={() => handleCopy(copyValue)} className="cursor-pointer">
+                        <FaRegCopy className="text-lg" />
                     </button>
                 )}
             </div>
@@ -87,25 +92,37 @@ export default function ContactPage() {
 
     return (
         <div className={`pt-16 min-h-screen px-6 py-10 ${containerClass}`}>
-            <div className="max-w-5xl mx-auto flex flex-col items-center space-y-6">
-                {/* Big Name and Title */}
-                <h1 className="text-5xl font-bold">Bjorn Melin</h1>
-                <p className="text-2xl text-gray-400">
+            <div className="max-w-5xl mx-auto flex flex-col items-center space-y-8">
+                {/* Big Name and Title with Animation */}
+                <h1 className="text-5xl font-bold fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    Bjorn Melin
+                </h1>
+                <p className="text-2xl text-gray-400 fade-in-up" style={{ animationDelay: '0.3s' }}>
                     Senior Data Scientist &amp; Cloud Solutions Architect
                 </p>
 
-                {/* Contact Information */}
+                {/* Contact Information Rows */}
                 <div className="flex flex-col items-center space-y-4 w-full">
-                    <InfoRow icon={<FaEnvelope size={20} />} label={email} copyValue={email} />
-                    <InfoRow icon={<FaPhone size={20} />} label={phone} copyValue={phone} />
-
-                    {/* Social Media: these rows open the link in a new tab */}
+                    <InfoRow
+                        icon={<FaEnvelope size={20} />}
+                        label={email}
+                        copyValue={email}
+                        delay="0.4s"
+                    />
+                    <InfoRow
+                        icon={<FaPhone size={20} />}
+                        label={phone}
+                        copyValue={phone}
+                        delay="0.5s"
+                    />
+                    {/* Social Media Rows */}
                     <InfoRow
                         icon={<FaTwitter size={20} />}
                         label="Twitter"
                         copyValue={twitter}
                         isLink={true}
                         link={`https://${twitter}`}
+                        delay="0.6s"
                     />
                     <InfoRow
                         icon={<FaLinkedin size={20} />}
@@ -113,6 +130,7 @@ export default function ContactPage() {
                         copyValue={linkedin}
                         isLink={true}
                         link={`https://${linkedin}`}
+                        delay="0.7s"
                     />
                     <InfoRow
                         icon={<FaGithub size={20} />}
@@ -120,10 +138,16 @@ export default function ContactPage() {
                         copyValue={github}
                         isLink={true}
                         link={`https://${github}`}
+                        delay="0.8s"
                     />
                 </div>
 
-                {copyStatus && <p className="mt-4 text-center">{copyStatus}</p>}
+                {/* Copy status message */}
+                {copyStatus && (
+                    <p className="mt-4 text-center fade-in-up" style={{ animationDelay: '0.9s' }}>
+                        {copyStatus}
+                    </p>
+                )}
             </div>
         </div>
     )

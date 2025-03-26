@@ -1,8 +1,8 @@
 'use client'
-
+import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProjectsPage() {
     const { theme } = useTheme()
@@ -21,21 +21,20 @@ export default function ProjectsPage() {
     const subTextClass = theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
     const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
     const cardTextClass = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-    const cardHighlightClass = theme === 'dark' ? 'text-blue-400' : 'text-blue-500'
+    const cardHighlightClass = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
 
     return (
         <div className={`pt-16 min-h-screen px-6 py-10 ${containerClass}`}>
             {/* Header / Intro */}
-            <section className="max-w-5xl mx-auto text-center">
+            <section className="max-w-5xl mx-auto text-center fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <h1 className="text-3xl md:text-4xl font-bold">Projects</h1>
                 <p className={`mt-4 ${subTextClass}`}>
-                    A collection of projects showcasing my work in machine learning and AI, cloud architecture,
-                    and web development, as well as open source contributions.
+                    A collection of projects showcasing my work in machine learning, cloud architecture, and full-stack development.
                 </p>
             </section>
 
             {/* Filter / Sort Bar */}
-            <section className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between mt-8">
+            <section className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between mt-8 fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <div className="flex space-x-4 mb-4 md:mb-0">
                     <button
                         className={`px-4 py-2 rounded-full ${theme === 'dark' ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`}
@@ -67,10 +66,13 @@ export default function ProjectsPage() {
             {/* Projects Grid */}
             <section className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 {/* Project Card #1 */}
-                <div className={`rounded-lg p-4 ${cardBgClass}`}>
+                <div
+                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
+                    style={{ animationDelay: '0.6s' }}
+                >
                     <div className="relative w-full h-40 mb-4">
                         <Image
-                            src="/stardex.png" // Update to your own image
+                            src="/stardex.png" // Update with your own image
                             alt="Stardex"
                             fill
                             className="object-cover rounded"
@@ -86,10 +88,13 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Project Card #2 */}
-                <div className={`rounded-lg p-4 ${cardBgClass}`}>
+                <div
+                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
+                    style={{ animationDelay: '0.8s' }}
+                >
                     <div className="relative w-full h-40 mb-4">
                         <Image
-                            src="/polyagent.png" // Update to your own image
+                            src="/polyagent.png" // Update with your own image
                             alt="PolyAgent"
                             fill
                             className="object-cover rounded"
@@ -100,15 +105,18 @@ export default function ProjectsPage() {
             Featured Project
           </span>
                     <p className={`text-sm ${cardTextClass}`}>
-                        A multi-agent AI research and report-generation platform, providing insights into advanced ML models.
+                        A modular, multi-agent AI research and report-generation platform, providing insights into advanced ML models.
                     </p>
                 </div>
 
                 {/* Project Card #3 */}
-                <div className={`rounded-lg p-4 ${cardBgClass}`}>
+                <div
+                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
+                    style={{ animationDelay: '1s' }}
+                >
                     <div className="relative w-full h-40 mb-4">
                         <Image
-                            src="/aiscout.png" // Update to your own image
+                            src="/aiscout.png" // Update with your own image
                             alt="AIScout"
                             fill
                             className="object-cover rounded"
@@ -120,6 +128,13 @@ export default function ProjectsPage() {
                     </p>
                 </div>
             </section>
+
+            {/* View All Projects Button */}
+            <div className="mt-8 text-center fade-in-up" style={{ animationDelay: '1.2s' }}>
+                <Link href="/projects" className={`px-6 py-3 rounded-full font-semibold transition transform hover:scale-105 ${theme === 'dark' ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-black hover:bg-gray-300'}`}>
+                    View All Projects
+                </Link>
+            </div>
         </div>
     )
 }
