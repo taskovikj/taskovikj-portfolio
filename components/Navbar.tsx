@@ -32,7 +32,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center">
                 {/* Left side: Name (clickable, linking to home page) */}
                 <Link href="/" className={`text-lg font-bold ${textClass} hover:underline`}>
-                    Bjorn Melin
+                    Branislav Taskovikj
                 </Link>
 
                 {/* Right side: Navigation links and ThemeToggle */}
