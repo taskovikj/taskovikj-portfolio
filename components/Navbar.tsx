@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes'
 import ThemeToggle from './ThemeToggle'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { HiMenu, HiX } from 'react-icons/hi' // For hamburger (HiMenu) and close (HiX) icons
+import { userData } from '@/data/userData'
 
 export default function Navbar() {
     const { theme } = useTheme()
@@ -13,16 +13,13 @@ export default function Navbar() {
 
     useEffect(() => {
         setMounted(true)
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
-        }
+        const handleScroll = () => setIsScrolled(window.scrollY > 50)
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     if (!mounted) return null
 
-    // Example backgrounds for dark/light
     const defaultLight = 'bg-white'
     const defaultDark = 'bg-black'
     const scrolledLight = 'bg-gray-100/70 backdrop-blur-md'
@@ -36,15 +33,11 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300
-                  ${navBackground} ${navShadow}
-                  px-8 py-4 flex items-center justify-between ${textClass}`}
+                  ${navBackground} ${navShadow} px-8 py-4 flex items-center justify-between ${textClass}`}
         >
-            {/* Left side: Logo / Name */}
             <Link href="/" className="text-lg font-bold hover:underline">
-                Branislav Taskovikj
+                {userData.name}
             </Link>
-
-            {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center space-x-4">
                 <Link href="/about" className="hover:underline">
                     About
@@ -57,43 +50,22 @@ export default function Navbar() {
                 </Link>
                 <ThemeToggle />
             </div>
-
-            {/* Mobile Hamburger Button (shows on small screens) */}
-            <button
-                className="md:hidden focus:outline-none"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-                {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            <button className="md:hidden focus:outline-none" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? 'X' : '☰'}
             </button>
-
-            {/* Mobile Menu Overlay (shown if isMenuOpen is true) */}
             {isMenuOpen && (
                 <div
-                    className={`absolute top-full left-0 w-full ${navBackground} ${textClass}
-                flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
+                    className={`absolute top-full left-0 w-full ${navBackground} ${textClass} flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
                 >
-                    <Link
-                        href="/about"
-                        className="hover:underline"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link href="/about" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
                         About
                     </Link>
-                    <Link
-                        href="/projects"
-                        className="hover:underline"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link href="/projects" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
                         Projects
                     </Link>
-                    <Link
-                        href="/contact"
-                        className="hover:underline"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link href="/contact" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
                         Contact
                     </Link>
-                    {/* Removed the onClick wrapper for ThemeToggle */}
                     <ThemeToggle />
                 </div>
             )}

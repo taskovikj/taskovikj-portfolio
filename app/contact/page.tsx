@@ -10,6 +10,7 @@ import {
     FaGithub,
     FaExternalLinkAlt,
 } from 'react-icons/fa'
+import { userData } from '@/data/userData'
 
 export default function ContactPage() {
     const { theme } = useTheme()
@@ -21,13 +22,6 @@ export default function ContactPage() {
     }, [])
 
     if (!mounted) return null
-
-    // Define your contact details
-    const email = 'bjorn@example.com'
-    const phone = '+1 (123) 456-7890'
-    const twitter = 'twitter.com/bjorn'
-    const linkedin = 'linkedin.com/in/bjorn'
-    const github = 'github.com/bjorn'
 
     // Container styling based on theme
     const containerClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
@@ -95,49 +89,49 @@ export default function ContactPage() {
             <div className="max-w-5xl mx-auto flex flex-col items-center space-y-8">
                 {/* Big Name and Title with Animation */}
                 <h1 className="text-5xl font-bold fade-in-up" style={{ animationDelay: '0.2s' }}>
-                    Bjorn Melin
+                    {userData.name}
                 </h1>
                 <p className="text-2xl text-gray-400 fade-in-up" style={{ animationDelay: '0.3s' }}>
-                    Senior Data Scientist &amp; Cloud Solutions Architect
+                    {userData.title}
                 </p>
 
                 {/* Contact Information Rows */}
                 <div className="flex flex-col items-center space-y-4 w-full">
                     <InfoRow
                         icon={<FaEnvelope size={20} />}
-                        label={email}
-                        copyValue={email}
+                        label={userData.email}
+                        copyValue={userData.email}
                         delay="0.4s"
                     />
                     <InfoRow
                         icon={<FaPhone size={20} />}
-                        label={phone}
-                        copyValue={phone}
+                        label={userData.phone}
+                        copyValue={userData.phone}
                         delay="0.5s"
                     />
-                    {/* Social Media Rows */}
+                    {/* Social Media Rows that open links */}
                     <InfoRow
                         icon={<FaTwitter size={20} />}
                         label="Twitter"
-                        copyValue={twitter}
+                        copyValue={userData.social.twitter}
                         isLink={true}
-                        link={`https://${twitter}`}
+                        link={`https://${userData.social.twitter}`}
                         delay="0.6s"
                     />
                     <InfoRow
                         icon={<FaLinkedin size={20} />}
                         label="LinkedIn"
-                        copyValue={linkedin}
+                        copyValue={userData.social.linkedin}
                         isLink={true}
-                        link={`https://${linkedin}`}
+                        link={`https://${userData.social.linkedin}`}
                         delay="0.7s"
                     />
                     <InfoRow
                         icon={<FaGithub size={20} />}
                         label="GitHub"
-                        copyValue={github}
+                        copyValue={userData.social.github}
                         isLink={true}
-                        link={`https://${github}`}
+                        link={`https://${userData.social.github}`}
                         delay="0.8s"
                     />
                 </div>

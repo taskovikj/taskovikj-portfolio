@@ -3,38 +3,45 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { userData } from '@/data/userData'
 
 export default function ProjectsPage() {
     const { theme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
-    // Ensure we're in the browser before rendering
     useEffect(() => {
         setMounted(true)
     }, [])
 
     if (!mounted) return null
 
-    // Dynamically compute classes based on the current theme
-    const containerClass =
-        theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    const containerClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
     const subTextClass = theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
     const cardBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
     const cardTextClass = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-    const cardHighlightClass = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+    const btnBase = 'px-6 py-3 rounded-full font-semibold transition transform hover:scale-105'
+    const btnPrimary = theme === 'dark'
+        ? 'bg-gray-700 text-white hover:bg-gray-600'
+        : 'bg-gray-200 text-black hover:bg-gray-300'
 
     return (
         <div className={`pt-16 min-h-screen px-6 py-10 ${containerClass}`}>
-            {/* Header / Intro */}
-            <section className="max-w-5xl mx-auto text-center fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {/* Header / Intro with Animation */}
+            <section
+                className="max-w-5xl mx-auto text-center fade-in-up"
+                style={{ animationDelay: '0.2s' }}
+            >
                 <h1 className="text-3xl md:text-4xl font-bold">Projects</h1>
                 <p className={`mt-4 ${subTextClass}`}>
-                    A collection of projects showcasing my work in machine learning, cloud architecture, and full-stack development.
+                    A collection of projects showcasing my work in machine learning, cloud architecture, full-stack development, and more.
                 </p>
             </section>
 
-            {/* Filter / Sort Bar */}
-            <section className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between mt-8 fade-in-up" style={{ animationDelay: '0.4s' }}>
+            {/* (Optional) Filter / Sort Bar with Animation */}
+            <section
+                className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between mt-8 fade-in-up"
+                style={{ animationDelay: '0.4s' }}
+            >
                 <div className="flex space-x-4 mb-4 md:mb-0">
                     <button
                         className={`px-4 py-2 rounded-full ${theme === 'dark' ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'}`}
@@ -63,78 +70,49 @@ export default function ProjectsPage() {
                 </div>
             </section>
 
-            {/* Projects Grid */}
+            {/* Projects Grid with Staggered Animation */}
             <section className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                {/* Project Card #1 */}
-                <div
-                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
-                    style={{ animationDelay: '0.6s' }}
-                >
-                    <div className="relative w-full h-40 mb-4">
-                        <Image
-                            src="/stardex.png" // Update with your own image
-                            alt="Stardex"
-                            fill
-                            className="object-cover rounded"
-                        />
+                {userData.projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className={`rounded-lg p-6 ${cardBgClass} shadow-lg hover:shadow-xl transition space-y-3 fade-in-up`}
+                        style={{ animationDelay: `${0.6 + index * 0.2}s` }}
+                    >
+                        <div className="relative w-full h-40 mb-4">
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-cover rounded"
+                            />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                        <p className={`text-sm ${cardTextClass}`}>{project.description}</p>
+                        <div className="mt-4">
+                            <p className="text-sm mb-2 text-gray-500">Tech Used:</p>
+                            <div className="flex flex-wrap gap-2">
+                                {project.techUsed.map((tech, idx) => (
+                                    <span key={idx} className="px-2 py-1 bg-gray-300 dark:bg-gray-700 text-xs rounded">
+                    {tech}
+                  </span>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="mt-4">
+                            <Link
+                                href={project.repo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${btnBase} ${btnPrimary}`}
+                            >
+                                View Repository
+                            </Link>
+                        </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Stardex - Explore GitHub Stars Intelligently</h3>
-                    <span className={`text-xs mb-2 inline-block ${cardHighlightClass}`}>
-            Featured Project
-          </span>
-                    <p className={`text-sm ${cardTextClass}`}>
-                        Explore GitHub Stars in real-time with AI-driven classification and analytics.
-                    </p>
-                </div>
-
-                {/* Project Card #2 */}
-                <div
-                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
-                    style={{ animationDelay: '0.8s' }}
-                >
-                    <div className="relative w-full h-40 mb-4">
-                        <Image
-                            src="/polyagent.png" // Update with your own image
-                            alt="PolyAgent"
-                            fill
-                            className="object-cover rounded"
-                        />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">PolyAgent Research Intelligence</h3>
-                    <span className={`text-xs mb-2 inline-block ${cardHighlightClass}`}>
-            Featured Project
-          </span>
-                    <p className={`text-sm ${cardTextClass}`}>
-                        A modular, multi-agent AI research and report-generation platform, providing insights into advanced ML models.
-                    </p>
-                </div>
-
-                {/* Project Card #3 */}
-                <div
-                    className={`rounded-lg p-4 ${cardBgClass} fade-in-up`}
-                    style={{ animationDelay: '1s' }}
-                >
-                    <div className="relative w-full h-40 mb-4">
-                        <Image
-                            src="/aiscout.png" // Update with your own image
-                            alt="AIScout"
-                            fill
-                            className="object-cover rounded"
-                        />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">AIScout</h3>
-                    <p className={`text-sm ${cardTextClass}`}>
-                        Real-time AI/ML platform analyzing performance metrics and data to guide sports scouting decisions.
-                    </p>
-                </div>
+                ))}
             </section>
 
-            {/* View All Projects Button */}
-            <div className="mt-8 text-center fade-in-up" style={{ animationDelay: '1.2s' }}>
-                <Link href="/projects" className={`px-6 py-3 rounded-full font-semibold transition transform hover:scale-105 ${theme === 'dark' ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-black hover:bg-gray-300'}`}>
-                    View All Projects
-                </Link>
-            </div>
+            {/* (Optional) You can add more sections here */}
         </div>
     )
 }
