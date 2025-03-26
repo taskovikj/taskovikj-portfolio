@@ -1,7 +1,7 @@
 'use client'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { FaTwitter, FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa'
 import Link from 'next/link'
 import { userData } from '@/data/userData'
 
