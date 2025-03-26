@@ -45,7 +45,7 @@ export default function Home() {
                     {userData.title}
                 </h2>
                 <div className="space-x-4">
-                    <Link href="/hire" className={`${btnBase} ${btnPrimary}`}>
+                    <Link href="/contact" className={`${btnBase} ${btnPrimary}`}>
                         Hire Me
                     </Link>
                     <Link href="/cv.pdf" download className={`${btnBase} ${btnPrimary}`}>
