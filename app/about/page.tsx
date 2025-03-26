@@ -14,7 +14,6 @@ export default function AboutPage() {
 
     if (!mounted) return null
 
-    // Dynamic classes based on theme
     const containerClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
     const cardBg = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
     const cardText = theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
@@ -22,7 +21,7 @@ export default function AboutPage() {
 
     return (
         <div className={`pt-16 min-h-screen px-6 py-10 ${containerClass}`}>
-            {/* Hero / Header Section */}
+            {/* Hero Section */}
             <section className="max-w-5xl mx-auto text-center fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4 mx-auto">
                     <Image
@@ -36,13 +35,13 @@ export default function AboutPage() {
                 <p className="mt-2 text-gray-500">{userData.title}</p>
             </section>
 
-            {/* Professional Summary */}
+            {/* Summary */}
             <section className="max-w-5xl mx-auto mt-12 fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <h2 className="text-2xl font-bold">Professional Summary</h2>
                 <p className="mt-4 leading-relaxed">{userData.about.summary}</p>
             </section>
 
-            {/* Skills & Expertise */}
+            {/* Skills */}
             <section className="max-w-5xl mx-auto mt-12 fade-in-up" style={{ animationDelay: '0.6s' }}>
                 <h2 className="text-2xl font-bold">Skills &amp; Expertise</h2>
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -59,7 +58,28 @@ export default function AboutPage() {
             <section className="max-w-5xl mx-auto mt-12 fade-in-up" style={{ animationDelay: '0.8s' }}>
                 <h2 className="text-2xl font-bold">Work Experience</h2>
                 <div className="mt-6 space-y-6">
-                    {userData.workExperience.map((exp, index) => (
+                    {(userData.workExperience.length ? userData.workExperience : [
+                        {
+                            role: "Full Stack Developer",
+                            company: "TechNova Labs",
+                            period: "Jan 2023 – Present",
+                            details: [
+                                "Developed and maintained scalable web applications.",
+                                "Worked closely with cross-functional teams on backend services.",
+                                "Participated in system architecture design and deployment automation."
+                            ]
+                        },
+                        {
+                            role: "Software Engineer Intern",
+                            company: "CodeSphere",
+                            period: "Jul 2022 – Dec 2022",
+                            details: [
+                                "Built internal dashboards for performance monitoring.",
+                                "Wrote REST APIs and implemented authentication systems.",
+                                "Assisted in database optimization and data migrations."
+                            ]
+                        }
+                    ]).map((exp, index) => (
                         <div key={index} className={`p-4 rounded-lg ${cardBg} shadow-lg transition`}>
                             <h3 className="text-xl font-semibold">{exp.role}</h3>
                             <p className={`text-sm ${cardTextSmall}`}>{exp.company} | {exp.period}</p>
@@ -73,15 +93,26 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* AWS Certifications */}
+            {/* Certifications */}
             <section className="max-w-5xl mx-auto mt-12 fade-in-up" style={{ animationDelay: '1s' }}>
-                <h2 className="text-2xl font-bold">AWS Certifications</h2>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <h2 className="text-2xl font-bold mb-4">Certifications</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {userData.certifications.map((cert, index) => (
-                        <div key={index} className={`p-4 rounded-lg text-center ${cardBg} shadow-lg transition`}>
-                            <h3 className="text-lg font-semibold mb-2">{cert.title}</h3>
-                            <p className={`text-sm ${cardTextSmall}`}>{cert.level}</p>
-                        </div>
+                        <a
+                            key={index}
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`block p-3 rounded-md ${cardBg} shadow hover:shadow-xl transition duration-300 text-center cursor-pointer hover:scale-[1.02]`}
+                        >
+                            <h3 className="text-base font-semibold mb-1">{cert.title}</h3>
+                            <p className={`text-xs ${cardTextSmall}`}>{cert.level}</p>
+                            {cert.link && (
+                                <p className="text-blue-400 text-xs mt-1 underline">
+                                    {cert.link.split('/').pop()?.replace('.pdf', '')}
+                                </p>
+                            )}
+                        </a>
                     ))}
                 </div>
             </section>
@@ -105,12 +136,10 @@ export default function AboutPage() {
                 <p className="mt-4 leading-relaxed">{userData.personalInterests}</p>
             </section>
 
-            {/* Get in Touch */}
+            {/* Contact */}
             <section className="max-w-5xl mx-auto mt-12 fade-in-up" style={{ animationDelay: '1.6s' }}>
                 <h2 className="text-2xl font-bold">Get in Touch</h2>
-                <p className="mt-4">
-                    Feel free to reach out if you have any questions or opportunities to collaborate:
-                </p>
+                <p className="mt-4">Feel free to reach out if you have any questions or opportunities to collaborate:</p>
                 <p className="mt-2 text-blue-500">{userData.email}</p>
             </section>
         </div>
