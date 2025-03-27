@@ -1,9 +1,10 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { userData } from '@/data/userData'
+import ProjectCard from '@/components/ProjectCard'
 
 export default function Home() {
     const { theme } = useTheme()
@@ -20,8 +21,9 @@ export default function Home() {
     const btnPrimary = theme === 'dark'
         ? 'bg-gray-700 text-white hover:bg-gray-600'
         : 'bg-gray-200 text-black hover:bg-gray-300'
-    const cardBg = theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
-    const cardShadow = 'shadow-lg hover:shadow-xl transition'
+
+    // For the card-like background behind Background & Skills
+    const cardBg = theme === 'dark' ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-700'
 
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen ${bgClass}`}>
@@ -35,7 +37,7 @@ export default function Home() {
                         src="/ja.jpg"
                         alt="Profile Photo"
                         fill
-                        className="object-cover"
+                        className="object-cover object-top"
                     />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold mb-4">
@@ -61,17 +63,17 @@ export default function Home() {
                 style={{ animationDelay: '0.4s' }}
             >
                 {/* Background Card */}
-                <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4`}>
-                    <h3 className="text-2xl font-semibold">Background</h3>
-                    <p className="leading-relaxed text-gray-400">
+                <div className={`p-6 rounded-lg shadow-lg hover:shadow-xl transition ${cardBg}`}>
+                    <h3 className="text-2xl font-semibold mb-2">Background</h3>
+                    <p className="leading-relaxed">
                         {userData.about.summary}
                     </p>
                 </div>
 
                 {/* Skills Card */}
-                <div className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-4`}>
-                    <h3 className="text-2xl font-semibold">Skills &amp; Expertise</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-400">
+                <div className={`p-6 rounded-lg shadow-lg hover:shadow-xl transition ${cardBg}`}>
+                    <h3 className="text-2xl font-semibold mb-2">Skills &amp; Expertise</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {userData.about.skills.map((skill, index) => (
                             <div key={index} className="space-y-1">
                                 <h4 className="text-lg font-semibold">{skill.title}</h4>
@@ -82,7 +84,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Centered About Button */}
             <div
                 className="max-w-5xl w-full flex justify-center pb-16 fade-in-up"
                 style={{ animationDelay: '0.6s' }}
@@ -98,32 +99,16 @@ export default function Home() {
                 style={{ animationDelay: '0.8s' }}
             >
                 <h3 className="text-3xl font-semibold mb-2 text-center">Featured Projects</h3>
-                <p className="text-center text-gray-400 mb-8">
+                <p className="text-center text-gray-700 dark:text-gray-400 mb-8">
                     A selection of my recent projects in AI, ML, and full-stack development.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {userData.featuredProjects.map((project, index) => (
-                        <div
+                        <ProjectCard
                             key={index}
-                            className={`${cardBg} ${cardShadow} p-6 rounded-lg space-y-3 fade-in-up`}
-                            style={{ animationDelay: `${1.0 + index * 0.2}s` }}
-                        >
-                            <div className="relative w-full h-40 mb-4">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    fill
-                                    className="object-cover rounded"
-                                />
-                            </div>
-                            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                            {project.highlight && (
-                                <span className="text-xs font-medium uppercase tracking-wider text-gray-500">
-                  {project.highlight}
-                </span>
-                            )}
-                            <p className="text-sm text-gray-400">{project.description}</p>
-                        </div>
+                            project={project}
+                            delay={`${1.0 + index * 0.2}s`}
+                        />
                     ))}
                 </div>
                 <div

@@ -39,6 +39,9 @@ export default function Navbar() {
                 {userData.name}
             </Link>
             <div className="hidden md:flex items-center space-x-4">
+                <Link href="/" className="hover:underline">
+                    Home
+                </Link>
                 <Link href="/about" className="hover:underline">
                     About
                 </Link>
@@ -57,6 +60,9 @@ export default function Navbar() {
                 <div
                     className={`absolute top-full left-0 w-full ${navBackground} ${textClass} flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
                 >
+                    <Link href="" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
+                        Home
+                    </Link>
                     <Link href="/about" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
                         About
                     </Link>
