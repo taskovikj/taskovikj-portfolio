@@ -1,9 +1,9 @@
 'use client'
-import { useTheme } from 'next-themes'
-import ThemeToggle from './ThemeToggle'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { userData } from '@/data/userData'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
     const { theme } = useTheme()
@@ -20,6 +20,7 @@ export default function Navbar() {
 
     if (!mounted) return null
 
+    // Determine background based on theme and scroll state
     const defaultLight = 'bg-white'
     const defaultDark = 'bg-black'
     const scrolledLight = 'bg-gray-100/70 backdrop-blur-md'
@@ -29,6 +30,9 @@ export default function Navbar() {
     const navBackground = isScrolled ? scrolledClass : defaultClass
     const navShadow = isScrolled ? 'shadow-md' : ''
     const textClass = theme === 'dark' ? 'text-white' : 'text-black'
+
+    // Set a less transparent background for the mobile menu overlay
+    const mobileMenuBg = theme === 'dark' ? 'bg-black/90' : 'bg-white/95'
 
     return (
         <nav
@@ -58,9 +62,9 @@ export default function Navbar() {
             </button>
             {isMenuOpen && (
                 <div
-                    className={`absolute top-full left-0 w-full ${navBackground} ${textClass} flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
+                    className={`absolute top-full left-0 w-full ${mobileMenuBg} ${textClass} flex flex-col items-start space-y-4 p-4 md:hidden shadow-md`}
                 >
-                    <Link href="" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
                         Home
                     </Link>
                     <Link href="/about" className="hover:underline" onClick={() => setIsMenuOpen(false)}>
