@@ -1,3 +1,38 @@
+// types.ts
+export interface Skill {
+    title: string;
+    description: string;
+}
+
+export interface Project {
+    title: string;
+    description: string;
+    image: string;
+    techUsed: string[];
+    repo: string;
+    highlight?: string;
+}
+
+export interface Experience {
+    role: string;
+    company: string;
+    period: string;
+    details: string[];
+}
+
+export interface Certification {
+    title: string;
+    level: string;
+    link?: string;
+}
+
+export interface Education {
+    degree: string;
+    institution: string;
+    period: string;
+}
+
+
 export const userData = {
     name: "Branislav Taskovikj",
     title: "Software engineering student & Data Science Enthusiast",
@@ -30,40 +65,39 @@ export const userData = {
                 title: "Frontend Technologies",
                 description: "Angular, React, Vue.js",
             },
-        ],
+        ] as Skill[],
     },
-        featuredProjects: [
-            {
-                title: "SmartVision AI",
-                description: "An intelligent system that uses computer vision and deep learning to analyze CCTV footage in real time.",
-                image: "/projects/smartvision.png",
-                techUsed: ["React", "Node.js", "Python", "TensorFlow"],
-                repo: "https://github.com/yourusername/smartvision-ai",
-                highlight: "Featured Project",
-            },
-            {
-                title: "TaskFlow Manager",
-                description: "A productivity and workflow management tool designed for teams, integrating kanban boards and analytics.",
-                image: "/projects/taskflow.png",
-                techUsed: ["Vue.js", "Firebase", "TailwindCSS"],
-                repo: "https://github.com/yourusername/taskflow-manager",
-                highlight: "Featured Project",
-            },
-            {
-                title: "DevBot Chat Assistant",
-                description: "An AI-powered chatbot that helps developers debug, generate code snippets, and fetch documentation quickly.",
-                image: "/projects/devbot.png",
-                techUsed: ["Next.js", "OpenAI API", "TypeScript"],
-                repo: "https://github.com/yourusername/devbot-assistant",
-                highlight: "Featured Project",
-            },
-        ],
-
-    projects: [],
+    featuredProjects: [
+        {
+            title: "SmartVision AI",
+            description: "An intelligent system that uses computer vision and deep learning to analyze CCTV footage in real time.",
+            image: "/projects/smartvision.png",
+            techUsed: ["React", "Node.js", "Python", "TensorFlow"],
+            repo: "https://github.com/yourusername/smartvision-ai",
+            highlight: "Featured Project",
+        },
+        {
+            title: "TaskFlow Manager",
+            description: "A productivity and workflow management tool designed for teams, integrating kanban boards and analytics.",
+            image: "/projects/taskflow.png",
+            techUsed: ["Vue.js", "Firebase", "TailwindCSS"],
+            repo: "https://github.com/yourusername/taskflow-manager",
+            highlight: "Featured Project",
+        },
+        {
+            title: "DevBot Chat Assistant",
+            description: "An AI-powered chatbot that helps developers debug, generate code snippets, and fetch documentation quickly.",
+            image: "/projects/devbot.png",
+            techUsed: ["Next.js", "OpenAI API", "TypeScript"],
+            repo: "https://github.com/yourusername/devbot-assistant",
+            highlight: "Featured Project",
+        },
+    ] as Project[],
+    projects: [] as Project[],
     profileImage: "/yourimage.jpg",
     about: {
         summary:
-                "I’m a final-year student in Software Engineering and Information Systems, focused on full stack development with more experience on the backend side. I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software."  ,
+            "I’m a final-year student in Software Engineering and Information Systems, focused on full stack development with more experience on the backend side. I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software.",
         skills: [
             {
                 title: "Backend Development",
@@ -81,9 +115,9 @@ export const userData = {
                 title: "Frontend Technologies",
                 description: "Angular, React, Vue.js",
             },
-        ],
+        ] as Skill[],
     },
-    workExperience: [],
+    workExperience: [] as Experience[],
     certifications: [
         {
             title: "Python for Big Data Processing",
@@ -115,15 +149,14 @@ export const userData = {
             level: "Certificate",
             link: "/certificates/2574379464TB.pdf",
         },
-    ],
+    ] as Certification[],
     education: [
         {
             degree: "Bachelor of Science in Software Engineering and Information Systems",
             institution: "Facility of computer science and engineering-Skopje",
             period: "2020 - Present (final exam remaining)",
         },
-    ],
+    ] as Education[],
     personalInterests:
         "In my free time, I enjoy experimenting with machine learning models, exploring data science tools, reading about backend optimization techniques, and contributing to open-source projects. I also like gaming from time to time, watching basketball, and following eSports tournaments.",
-
 };
