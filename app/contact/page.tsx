@@ -5,7 +5,7 @@ import {
     FaRegCopy,
     FaEnvelope,
     FaPhone,
-    FaTwitter,
+    FaInstagram,
     FaLinkedin,
     FaGithub,
     FaExternalLinkAlt,
@@ -111,11 +111,11 @@ export default function ContactPage() {
                     />
                     {/* Social Media Rows that open links */}
                     <InfoRow
-                        icon={<FaTwitter size={20} />}
-                        label="Twitter"
-                        copyValue={userData.social.twitter}
+                        icon={<FaInstagram size={20} />}
+                        label="Instagram"
+                        copyValue={userData.social.instagram}
                         isLink={true}
-                        link={`https://${userData.social.twitter}`}
+                        link={`https://${userData.social.instagram}`}
                         delay="0.6s"
                     />
                     <InfoRow
