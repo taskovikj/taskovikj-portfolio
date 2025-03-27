@@ -32,7 +32,7 @@ export default function Navbar() {
     const textClass = theme === 'dark' ? 'text-white' : 'text-black'
 
     // Set a less transparent background for the mobile menu overlay
-    const mobileMenuBg = theme === 'dark' ? 'bg-black/90' : 'bg-white/95'
+    const mobileMenuBg = theme === 'dark' ? 'bg-black/95' : 'bg-white/90'
 
     return (
         <nav
