@@ -37,12 +37,12 @@ export const userData = {
     name: "Branislav Taskovikj",
     title: "Software engineering student & Data Science Enthusiast",
     email: "branislav.taskovikj@gmail.com",
-    phone: "+389 XX XXX XXX",
+    phone: "+41 76 583 14 10",
     domain: "taskovikj.io",
     social: {
         instagram: "instagram.com/taskovikj",
         twitter: "twitter.com/yourprofile",
-        linkedin: "linkedin.com/in/yourprofile",
+        linkedin: "linkedin.com/in/branislav-taskovikj-1a1377243",
         github: "github.com/taskovikj",
     },
     aboutHomePage: {
@@ -127,8 +127,28 @@ export const userData = {
             "repo": "https://github.com/yourusername/newcluster",
             "highlight": "Featured Project"
         },
+        {
+            "title": "BlogPlatform",
+            "description": "A feature-rich blogging platform with REST API support and full-text search using Elasticsearch. Includes user authentication, custom front page, social features (follow/unfollow), comments, email notifications, and advanced search capabilities.",
+            "image": "/projects/django_rest_es.png",
+            "techUsed": [
+                "Django",
+                "Django REST Framework",
+                "Elasticsearch",
+                "Docker",
+                "PostgreSQL",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "GitHub Actions",
+                "Selenium"
+            ],
+            "repo": "https://github.com/taskovikj/django_rest_es",
+            "highlight": "Full-Stack Searchable Blog"
+        },
+
     ] as Project[],
-    profileImage: "/ja.jpg",
+    profileImage: "/profile_picture.jpg",
     about: {
         summary:
             "I’m a final-year student in Software Engineering and Information Systems, focused on full stack development with more experience on the backend side. I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software.",

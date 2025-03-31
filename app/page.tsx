@@ -34,7 +34,7 @@ export default function Home() {
             >
                 <div className="mb-6 w-40 h-40 relative rounded-full overflow-hidden shadow-lg">
                     <Image
-                        src="/ja.jpg"
+                        src="/profile_picture.jpg"
                         alt="Profile Photo"
                         fill
                         className="object-cover object-top"
@@ -50,7 +50,7 @@ export default function Home() {
                     <Link href="/contact" className={`${btnBase} ${btnPrimary}`}>
                         Hire Me
                     </Link>
-                    <Link href="/cv.pdf" download className={`${btnBase} ${btnPrimary}`}>
+                    <Link href="/Branislav_Taskovikj_CV_EN.pdf" download className={`${btnBase} ${btnPrimary}`}>
                         Download CV
                     </Link>
                 </div>
@@ -100,7 +100,7 @@ export default function Home() {
             >
                 <h3 className="text-3xl font-semibold mb-2 text-center">Featured Projects</h3>
                 <p className="text-center text-gray-700 dark:text-gray-400 mb-8">
-                    A selection of my recent projects in AI, ML, and full-stack development.
+                    A selection of my recent projects in Data Science, ML, and full-stack development.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {userData.featuredProjects.map((project, index) => (
