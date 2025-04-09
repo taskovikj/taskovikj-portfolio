@@ -1,7 +1,7 @@
 'use client'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
 import Link from 'next/link'
 import { userData } from '@/data/userData'
 
@@ -22,16 +22,11 @@ export default function Footer() {
 
     return (
         <footer
-            className={`
-        w-full
-        ${bgClass}
-        border-t ${borderClass}
-        py-10 px-8
-      `}
+            className={`w-full ${bgClass} border-t ${borderClass} py-10 px-8`}
         >
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                {/* Left Column: Social Media (Rows) */}
-                <div className="flex flex-col space-y-2">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                {/* Social links */}
+                <div className="flex flex-col gap-2 items-start w-full md:w-1/3">
                     <a
                         href={`https://${userData.social.instagram}`}
                         target="_blank"
@@ -61,15 +56,13 @@ export default function Footer() {
                     </a>
                 </div>
 
-                {/* Middle Column: Copyright */}
-                <div className="text-center">
-                    <p className={`text-sm ${textClass}`}>
-                        &copy; {new Date().getFullYear()} {userData.domain.trim()}. All rights reserved.
-                    </p>
+                {/* Copyright */}
+                <div className={`text-sm ${textClass} text-center w-full md:w-1/3`}>
+                    &copy; {new Date().getFullYear()} {userData.domain.trim()}. All rights reserved.
                 </div>
 
-                {/* Right Column: Navigation Links (Rows) */}
-                <div className="flex flex-col space-y-2 items-end">
+                {/* Navigation */}
+                <div className="flex flex-col gap-2 items-end w-full md:w-1/3">
                     <Link href="/about" className={`hover:underline ${textClass}`}>
                         About
                     </Link>
