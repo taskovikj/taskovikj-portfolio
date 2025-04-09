@@ -101,14 +101,19 @@ export default function ContactPage() {
                         icon={<FaEnvelope size={20} />}
                         label={userData.email}
                         copyValue={userData.email}
+                        isLink={true}
+                        link={`mailto:${userData.email}`}
                         delay="0.4s"
                     />
                     <InfoRow
                         icon={<FaPhone size={20} />}
                         label={userData.phone}
                         copyValue={userData.phone}
+                        isLink={true}
+                        link={`tel:${userData.phone}`}
                         delay="0.5s"
                     />
+
                     {/* Social Media Rows that open links */}
                     <InfoRow
                         icon={<FaInstagram size={20} />}
