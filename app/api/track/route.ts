@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(req: NextRequest) {
     const body = await req.json()
     const { url, referrer, userAgent, country } = body
-    const ip = req.headers.get('x-forwarded-for') || 'unknown'
+    const ip = 'unknown'
 
     const { error } = await supabase.from('visits').insert({
         url,
