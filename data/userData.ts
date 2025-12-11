@@ -35,7 +35,7 @@ export interface Education {
 
 export const userData = {
     name: "Branislav Taskovikj",
-    title: "Software engineering student & Data Science Enthusiast",
+    title: "B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems",
     email: "branislav.taskovikj@gmail.com",
     phone: "+41 76 583 14 10",
     domain: "taskovikj.io",
@@ -47,7 +47,7 @@ export const userData = {
     },
     aboutHomePage: {
         summary:
-            "I'm a final-year Software Engineering and Information Systems student with just one exam left to complete my degree. I work as a full stack developer with a strong focus on backend technologies like Django, Spring Boot, SQL, and Docker. Recently, I've developed a deep interest in Data Science and have worked with several ML and DNN models using PyTorch, pandas, and other Python tools.",
+            "I work as a full stack developer with a strong focus on backend technologies like Django, Spring Boot, SQL, and Docker. Recently, I've developed a deep interest in Data Science and have worked with several ML and DNN models using PyTorch, pandas, and other Python tools.",
         skills: [
             {
                 title: "Backend Development",
