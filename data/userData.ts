@@ -151,7 +151,7 @@ export const userData = {
     profileImage: "/profile_picture.jpg",
     about: {
         summary:
-            "I’m a final-year student in Software Engineering and Information Systems, focused on full stack development with more experience on the backend side. I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software.",
+            "I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software.",
         skills: [
             {
                 title: "Backend Development",
@@ -228,7 +228,7 @@ export const userData = {
     ] as Certification[],
     education: [
         {
-            degree: "Bachelor of Science in Software Engineering and Information Systems",
+            degree: "B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems",
             institution: "Facility of computer science and engineering-Skopje",
             period: "2020 - Present",
         },
