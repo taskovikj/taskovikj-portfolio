@@ -50,7 +50,7 @@ export default function Home() {
                     <Link href="/contact" className={`${btnBase} ${btnPrimary}`}>
                         Hire Me
                     </Link>
-                    <Link href="/Branislav Taskovikj_CV.pdf" download className={`${btnBase} ${btnPrimary}`}>
+                    <Link href="/Branislav_Taskovikj_CV.pdf" download className={`${btnBase} ${btnPrimary}`}>
                         Download CV
                     </Link>
                 </div>
