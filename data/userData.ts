@@ -234,5 +234,5 @@ export const userData = {
         },
     ] as Education[],
     personalInterests:
-        "In my free time, I enjoy experimenting with machine learning models, exploring data science tools, reading about backend optimization techniques, and contributing to open-source projects. I also like gaming from time to time, watching basketball, and following eSports tournaments.",
+        "In my free time, I enjoy experimenting with machine learning models, exploring data science tools, reading about backend optimization techniques. I also like gaming from time to time, watching basketball, and following eSports tournaments.",
 };
