@@ -112,6 +112,24 @@ export const userData = {
             "highlight": "Featured Project"
         },
         {
+  title: "MotoMak (CH) – Motorcycle Rental & Sales Platform",
+  description:
+    "Swiss motorcycle platform for renting and selling bikes with Sanity CMS, dynamic listings, filtering, inquiry forms with photo uploads, and production-grade SEO (metadata, schema.org JSON-LD, sitemap/robots, and performance optimizations).",
+  image: "/projects/django_rest_es.png",
+  techUsed: [
+    "Next.js",
+    "Sanity CMS",
+    "TypeScript",
+    "Vercel",
+    "Cloudflare",
+    "SEO",
+    "Resend (Email notifications)"
+  ],
+  repo: "https://github.com/taskovikj/motomak",
+  highlight: "Production Web App (SEO-focused)"
+},
+
+        {
             "title": "Storage Management App",
             "description": "A robust storage management application designed for businesses of all sizes. It features comprehensive inventory tracking, multi-location support, real-time analytics, and granular user access control, streamlining warehouse operations and optimizing space utilization.",
             "image": "/projects/lager.png",
