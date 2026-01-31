@@ -108,11 +108,11 @@ export const userData = {
             "description": "An auction-based web application where users can browse, search, filter, and bid on listed items, featuring watchlists, categories, and dynamic frontend interaction.",
             "image": "/projects/commerce.png",
             "techUsed": ["Django", "Vue.js", "Bootstrap", "Axios", "MySQL"],
-            "repo": "https://github.com/taskovikj/commerce",
+            "repo": "https://motomak.ch",
             "highlight": "Featured Project"
         },
         {
-  title: "MotoMak (CH) – Motorcycle Rental & Sales Platform",
+  title: "Motorcycle Rental & Sales Platform",
   description:
     "Swiss motorcycle platform for renting and selling bikes with Sanity CMS, dynamic listings, filtering, inquiry forms with photo uploads, and production-grade SEO (metadata, schema.org JSON-LD, sitemap/robots, and performance optimizations).",
   image: "/projects/django_rest_es.png",
