@@ -248,7 +248,7 @@ export const userData = {
         {
             degree: "B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems",
             institution: "Facility of computer science and engineering-Skopje",
-            period: "2020 - Present",
+            period: "2020 - 2025",
         },
     ] as Education[],
     personalInterests:
