@@ -9,9 +9,30 @@ export default function AccentPage() {
             >
                 https://www.accent.mk/
             </a>
+
             <div
                 dangerouslySetInnerHTML={{
-                    __html: '<a href="https://www.accent.mk/?utm_source=taskovikj.io&utm_medium=banner&utm_campaign=kampanja_1" class="btn">Open accent.mk</a>',
+                    __html: `
+                        <a
+                            href="https://www.accent.mk/?utm_source=taskovikj.io&utm_medium=banner&utm_campaign=kampanja_1"
+                            class="btn"
+                        >
+                            Open accent.mk
+                        </a>
+                    `,
+                }}
+            />
+
+            <div
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        <a
+                            href="https://www.accent.mk/efaktura/?utm_source=taskovikj.io&utm_medium=banner&utm_campaign=test_kampanja"
+                            class="btn"
+                        >
+                            Open eFaktura
+                        </a>
+                    `,
                 }}
             />
         </div>
