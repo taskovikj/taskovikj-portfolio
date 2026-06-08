@@ -31,7 +31,7 @@ export default function ProjectCard({ project, delay = '0s' }: ProjectCardProps)
     const badgeBgLight = 'bg-gray-300'
     const badgeBgDark = 'bg-gray-700'
     // Button styling
-    const btnBase = 'inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition transform hover:scale-105'
+    const btnBase = 'inline-flex h-11 w-full sm:w-[8.25rem] items-center justify-center gap-2 rounded-full px-3 text-sm font-semibold whitespace-nowrap transition transform hover:scale-105'
     const btnPrimary = isDark
         ? 'bg-gray-700 text-white hover:bg-gray-600'
         : 'bg-gray-200 text-black hover:bg-gray-300'
@@ -87,7 +87,7 @@ export default function ProjectCard({ project, delay = '0s' }: ProjectCardProps)
                         rel="noopener noreferrer"
                         className={`${btnBase} ${btnSecondary}`}
                     >
-                        <FaExternalLinkAlt />
+                        <FaExternalLinkAlt className="shrink-0" />
                         Preview
                     </Link>
                 )}
@@ -98,8 +98,8 @@ export default function ProjectCard({ project, delay = '0s' }: ProjectCardProps)
                         rel="noopener noreferrer"
                         className={`${btnBase} ${btnPrimary}`}
                     >
-                        <FaGithub />
-                        View Repository
+                        <FaGithub className="shrink-0" />
+                        Repository
                     </Link>
                 )}
             </div>
