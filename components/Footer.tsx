@@ -13,12 +13,11 @@ export default function Footer() {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
-
-    const bgClass = theme === 'dark' ? 'bg-black' : 'bg-white'
-    const textClass = theme === 'dark' ? 'text-white' : 'text-black'
-    const borderClass = theme === 'dark' ? 'border-gray-300' : 'border-gray-700'
-    const socialHover = theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-gray-600'
+    const isDark = !mounted || theme === 'dark'
+    const bgClass = isDark ? 'bg-black' : 'bg-white'
+    const textClass = isDark ? 'text-white' : 'text-black'
+    const borderClass = isDark ? 'border-gray-300' : 'border-gray-700'
+    const socialHover = isDark ? 'hover:text-gray-400' : 'hover:text-gray-600'
 
     return (
         <footer

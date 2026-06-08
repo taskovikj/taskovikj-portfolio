@@ -10,8 +10,8 @@ import type { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Branislav Taskoikj',
-    description: 'My portfolio website',
+    title: 'Branislav Taskovikj | Full-Stack Software Engineer',
+    description: 'Portfolio of Branislav Taskovikj: full-stack software engineering, automation, data workflows, and open-source product work.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -3,6 +3,10 @@ import { supabase } from '@/lib/supabase'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
+    if (!supabase) {
+        return NextResponse.json({ status: 'skipped' })
+    }
+
     const body = await req.json()
     const { url, referrer, userAgent, country } = body
     const ip = 'unknown'

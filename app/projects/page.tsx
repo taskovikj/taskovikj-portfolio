@@ -13,11 +13,10 @@ export default function ProjectsPage() {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
-
     // Light/dark mode classes
-    const containerClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
-    const subTextClass = theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+    const isDark = !mounted || theme === 'dark'
+    const containerClass = isDark ? 'bg-black text-white' : 'bg-white text-black'
+    const subTextClass = isDark ? 'text-gray-400' : 'text-gray-500'
 
     // Filter the projects by title, description, or techUsed
     const filteredProjects = userData.projects.filter((project) => {
@@ -45,7 +44,7 @@ export default function ProjectsPage() {
             >
                 <h1 className="text-3xl md:text-4xl font-bold">Projects</h1>
                 <p className={`mt-4 ${subTextClass}`}>
-                    A collection of projects showcasing my work in machine learning, cloud architecture, full-stack development, and more.
+                    Production websites, automation systems, data tools, and backend-heavy applications I have built or maintain.
                 </p>
             </section>
 
@@ -59,12 +58,12 @@ export default function ProjectsPage() {
                         type="text"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        placeholder="Search by title, description, or tech..."
+                        placeholder="Search projects..."
                         className={`
               w-full max-w-md px-4 py-2 rounded-full 
               focus:outline-none focus:ring-2 focus:ring-blue-500 
               transition
-              ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}
+              ${isDark ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}
             `}
                     />
                 </div>

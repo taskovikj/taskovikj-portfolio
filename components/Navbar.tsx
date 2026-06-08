@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import { userData } from '@/data/userData'
 import ThemeToggle from './ThemeToggle'
 
@@ -18,21 +19,17 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    if (!mounted) return null
-
-    // Determine background based on theme and scroll state
     const defaultLight = 'bg-white'
     const defaultDark = 'bg-black'
     const scrolledLight = 'bg-gray-100/70 backdrop-blur-md'
     const scrolledDark = 'bg-black/40 backdrop-blur-md'
-    const defaultClass = theme === 'dark' ? defaultDark : defaultLight
-    const scrolledClass = theme === 'dark' ? scrolledDark : scrolledLight
+    const isDark = !mounted || theme === 'dark'
+    const defaultClass = isDark ? defaultDark : defaultLight
+    const scrolledClass = isDark ? scrolledDark : scrolledLight
     const navBackground = isScrolled ? scrolledClass : defaultClass
     const navShadow = isScrolled ? 'shadow-md' : ''
-    const textClass = theme === 'dark' ? 'text-white' : 'text-black'
-
-    // Set a less transparent background for the mobile menu overlay
-    const mobileMenuBg = theme === 'dark' ? 'bg-black/95' : 'bg-white/90'
+    const textClass = isDark ? 'text-white' : 'text-black'
+    const mobileMenuBg = isDark ? 'bg-black/95' : 'bg-white/90'
 
     return (
         <nav
@@ -57,8 +54,13 @@ export default function Navbar() {
                 </Link>
                 <ThemeToggle />
             </div>
-            <button className="md:hidden focus:outline-none" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? 'X' : '☰'}
+            <button
+                className="md:hidden focus:outline-none"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMenuOpen}
+            >
+                {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
             </button>
             {isMenuOpen && (
                 <div

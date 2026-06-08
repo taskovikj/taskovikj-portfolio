@@ -14,16 +14,15 @@ export default function Home() {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
-
-    const bgClass = theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'
+    const isDark = !mounted || theme === 'dark'
+    const bgClass = isDark ? 'bg-black text-white' : 'bg-white text-black'
     const btnBase = 'px-6 py-3 rounded-full font-semibold transition transform hover:scale-105'
-    const btnPrimary = theme === 'dark'
+    const btnPrimary = isDark
         ? 'bg-gray-700 text-white hover:bg-gray-600'
         : 'bg-gray-200 text-black hover:bg-gray-300'
 
     // For the card-like background behind Background & Skills
-    const cardBg = theme === 'dark' ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-700'
+    const cardBg = isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-700'
 
     return (
         <div className={`flex flex-col items-center justify-center min-h-screen ${bgClass}`}>
@@ -100,7 +99,7 @@ export default function Home() {
             >
                 <h3 className="text-3xl font-semibold mb-2 text-center">Featured Projects</h3>
                 <p className="text-center text-gray-700 dark:text-gray-400 mb-8">
-                    A selection of my recent projects in Data Science, ML, and full-stack development.
+                    A selection of my strongest production, automation, data, and open-source work.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {userData.featuredProjects.map((project, index) => (

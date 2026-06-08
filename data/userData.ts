@@ -1,256 +1,236 @@
-// types.ts
 export interface Skill {
-    title: string;
-    description: string;
+    title: string
+    description: string
 }
 
 export interface Project {
-    title: string;
-    description: string;
-    image: string;
-    techUsed: string[];
-    repo: string;
-    highlight?: string;
+    title: string
+    description: string
+    image: string
+    techUsed: string[]
+    repo?: string
+    preview?: string
+    highlight?: string
 }
 
 export interface Experience {
-    role: string;
-    company: string;
-    period: string;
-    details: string[];
+    role: string
+    company: string
+    period: string
+    details: string[]
 }
 
 export interface Certification {
-    title: string;
-    level: string;
-    link?: string;
+    title: string
+    level: string
+    link?: string
 }
 
 export interface Education {
-    degree: string;
-    institution: string;
-    period: string;
+    degree: string
+    institution: string
+    period: string
 }
 
+const skills: Skill[] = [
+    {
+        title: 'Backend Development',
+        description: 'Django, FastAPI, Spring Boot, REST APIs, PostgreSQL, MySQL, SQLite, Elasticsearch',
+    },
+    {
+        title: 'Data Science & Machine Learning',
+        description: 'Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, DuckDB, Jupyter, PowerBI',
+    },
+    {
+        title: 'Frontend Technologies',
+        description: 'TypeScript, JavaScript, React, Next.js, Vue.js, Angular, Tailwind CSS, Bootstrap',
+    },
+    {
+        title: 'DevOps & Automation',
+        description: 'Docker, Docker Compose, Caddy, Linux, GitHub Actions, Selenium, ffmpeg, MCP tools',
+    },
+]
+
+const featuredProjects: Project[] = [
+    {
+        title: 'Dockio',
+        description:
+            'Open-source self-hosted VPS deployment panel for Git, Docker image, and Docker Compose deployments. It includes GitHub App repository deploys, Caddy routing, managed databases, runtime logs, health checks, firewall helpers, deployment history, and audit logs.',
+        image: '/projects/dockio.png',
+        techUsed: ['Next.js', 'TypeScript', 'Docker', 'Caddy', 'Linux', 'GitHub App', 'Systemd'],
+        repo: 'https://github.com/taskovikj/supavibe-panel',
+        preview: 'https://dockio.dev',
+        highlight: 'Open Source Platform',
+    },
+    {
+        title: 'AutoTyp.ch',
+        description:
+            'Swiss vehicle type approval and Typenschein lookup product built around 220,000+ ASTRA records, technical vehicle data, multilingual guide pages, and canton-level tax-estimate workflows.',
+        image: '/projects/autotyp.png',
+        techUsed: ['Next.js', 'TypeScript', 'Swiss Open Data', 'SEO', 'Data Modeling'],
+        preview: 'https://autotyp.ch',
+        highlight: 'Swiss Data Product',
+    },
+    {
+        title: 'Facebook Content Automation Dashboard',
+        description:
+            'Local-first dashboard for Facebook page profiles, topic queues, OpenAI-assisted scripts, TTS, transcription, subtitle generation, ffmpeg video rendering, scheduling, retryable Meta publishing queues, logs, and health checks.',
+        image: '/projects/facebook_automation.png',
+        techUsed: ['FastAPI', 'SQLite', 'APScheduler', 'OpenAI', 'Meta Graph API', 'ffmpeg'],
+        repo: 'https://github.com/taskovikj/facebook-content-automation-dashboard',
+        highlight: 'Automation System',
+    },
+]
+
+const projects: Project[] = [
+    ...featuredProjects,
+    {
+        title: 'SwissDataMCP',
+        description:
+            'Local MCP server for source-grounded Swiss open-data discovery, DuckDB analytics, dataset loading, charts, interactive reports, and citation packs for agent workflows.',
+        image: '/projects/swissdatamcp.png',
+        techUsed: ['Python', 'MCP', 'DuckDB', 'Pandas', 'Plotly', 'Matplotlib'],
+        repo: 'https://github.com/taskovikj/swiss-open-data-mcp',
+        highlight: 'Open Data Tooling',
+    },
+    {
+        title: 'Public Health and Environmental Degradation',
+        description:
+            'Data science research project exploring relationships between environmental degradation and public health outcomes using global sources such as GDELT, WHO GHO, and OECD data.',
+        image: '/projects/public_health.png',
+        techUsed: ['Python', 'Pandas', 'Jupyter', 'Matplotlib', 'GDELT', 'WHO GHO', 'OECD API'],
+        repo: 'https://github.com/taskovikj/public_health',
+        highlight: 'Data Science',
+    },
+    {
+        title: 'Django REST + Elasticsearch Blog Platform',
+        description:
+            'Feature-rich blog platform with REST API support, Elasticsearch search, authentication, custom front page, follow/unfollow, comments, email notifications, GitHub Actions, Docker, and Selenium tests.',
+        image: '/projects/django_rest_es.png',
+        techUsed: ['Django', 'DRF', 'Elasticsearch', 'Docker', 'PostgreSQL', 'GitHub Actions', 'Selenium'],
+        repo: 'https://github.com/taskovikj/django_rest_es',
+        highlight: 'Full-Stack Search App',
+    },
+    {
+        title: 'Commerce App',
+        description:
+            'Auction-style web application where users can browse, search, filter, bid on items, manage watchlists, and explore categories through a dynamic frontend experience.',
+        image: '/projects/commerce.png',
+        techUsed: ['Django', 'Vue.js', 'Bootstrap', 'Axios', 'MySQL'],
+        repo: 'https://github.com/taskovikj/commerce',
+        highlight: 'Full-Stack Web App',
+    },
+    {
+        title: 'Storage Management App',
+        description:
+            'Inventory and storage management system with multi-location tracking, analytics, and role-aware access patterns for warehouse and small-business operations.',
+        image: '/projects/lager.png',
+        techUsed: ['Django', 'Bootstrap', 'Axios', 'MySQL'],
+        highlight: 'Operations Tool',
+    },
+    {
+        title: 'NewsClustering App',
+        description:
+            'News aggregation and clustering platform that scrapes articles from multiple sources, maps them into custom categories, and supports archive-style browsing.',
+        image: '/projects/mnm.png',
+        techUsed: ['Django', 'Bootstrap', 'PostgreSQL', 'Pandas'],
+        highlight: 'Data-Backed Publishing',
+    },
+    {
+        title: 'Motomak.ch',
+        description:
+            'Swiss motorcycle rental and sales platform with Sanity CMS, dynamic listings, filtering, inquiry forms with photo uploads, email notifications, structured metadata, sitemap/robots, and production SEO.',
+        image: '/projects/motomak.png',
+        techUsed: ['Next.js', 'Sanity CMS', 'TypeScript', 'Vercel', 'Cloudflare', 'SEO', 'Resend'],
+        repo: 'https://github.com/taskovikj/motomak',
+        preview: 'https://motomak.ch',
+        highlight: 'Production Web App',
+    },
+]
 
 export const userData = {
-    name: "Branislav Taskovikj",
-    title: "B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems",
-    email: "branislav.taskovikj@gmail.com",
-    phone: "+41 76 583 14 10",
-    domain: "taskovikj.io",
+    name: 'Branislav Taskovikj',
+    title: 'Full-Stack Software Engineer | Backend, Data Workflows & Automation',
+    email: 'branislav.taskovikj@gmail.com',
+    phone: '+41 76 583 14 10',
+    domain: 'taskovikj.io',
     social: {
-        instagram: "instagram.com/taskovikj",
-        twitter: "twitter.com/yourprofile",
-        linkedin: "linkedin.com/in/branislav-taskovikj-1a1377243",
-        github: "github.com/taskovikj",
+        instagram: 'instagram.com/taskovikj',
+        linkedin: 'linkedin.com/in/branislav-taskovikj-1a1377243',
+        github: 'github.com/taskovikj',
     },
     aboutHomePage: {
         summary:
-            "I work as a full stack developer with a strong focus on backend technologies like Django, Spring Boot, SQL, and Docker. Recently, I've developed a deep interest in Data Science and have worked with several ML and DNN models using PyTorch, pandas, and other Python tools.",
-        skills: [
-            {
-                title: "Backend Development",
-                description: "Django, Spring Boot, SQL, Docker, Elasticsearch",
-            },
-            {
-                title: "Data Science & Machine Learning",
-                description: "PyTorch, Pandas, Scikit-learn, TensorFlow,PowerBI, NumPy",
-            },
-            {
-                title: "Programming Languages",
-                description: "Python, Java, C, C++, Java Script",
-            },
-            {
-                title: "Frontend Technologies",
-                description: "Angular, React, Vue.js",
-            },
-        ] as Skill[],
+            'I build practical full-stack systems across backend engineering, data workflows, automation, and production websites. My work combines Python/Django/FastAPI, TypeScript/Next.js, Docker, SQL databases, and data tooling to turn real-world ideas into reliable software.',
+        skills,
     },
-    featuredProjects: [
-        {
-            "title": "Public Health and Environmental Degradation",
-            "description": "A data-driven research project that explores the correlation between environmental degradation and public health outcomes, using global data sources to evaluate the effectiveness of current environmental health policies.",
-            "image": "/projects/public_health.png",
-            "techUsed": ["Python", "Pandas", "Jupyter", "Matplotlib", "GDELT", "WHO GHO", "OECD API"],
-            "repo": "https://github.com/taskovikj/environment-health-analysis",
-            "highlight": "Featured Project",
-        },
-        {
-            "title": "Storage Management App",
-            "description": "A robust storage management application designed for businesses of all sizes. It features comprehensive inventory tracking, multi-location support, real-time analytics, and granular user access control, streamlining warehouse operations and optimizing space utilization.",
-            "image": "/projects/lager.png",
-            "techUsed": ["Django", "Bootstrap", "Axios", "MySQL"],
-            "repo": "https://github.com/yourusername/storage-manager",
-            "highlight": "Featured Project"
-        },
-        {
-            "title": "NewsClustering App",
-            "description": "Aggregator website that scrapes articles from multiple sources, mapping them into custom categories. It features a comprehensive PDF and video archive, alongside a bespoke blog page.",
-            "image": "/projects/mnm.png",
-            "techUsed": ["Django", "Bootstrap", "Postgres","Pandas"],
-            "repo": "https://github.com/Taskovikj",
-            "highlight": "Featured Project"
-        },
-
-    ] as Project[],
-    projects: [
-        {
-            "title": "Public Health and Environmental Degradation",
-            "description": "A data-driven research project that explores the correlation between environmental degradation and public health outcomes, using global data sources to evaluate the effectiveness of current environmental health policies.",
-            "image": "/projects/public_health.png",
-            "techUsed": ["Python", "Pandas", "Jupyter", "Matplotlib", "GDELT", "WHO GHO", "OECD API"],
-            "repo": "https://github.com/taskovikj/environment-health-analysis",
-            "highlight": "Featured Project",
-        },
-        {
-            "title": "Commerce App",
-            "description": "An auction-based web application where users can browse, search, filter, and bid on listed items, featuring watchlists, categories, and dynamic frontend interaction.",
-            "image": "/projects/commerce.png",
-            "techUsed": ["Django", "Vue.js", "Bootstrap", "Axios", "MySQL"],
-            "repo": "https://motomak.ch",
-            "highlight": "Featured Project"
-        },
-        {
-  title: "Motorcycle Rental & Sales Platform",
-  description:
-    "Swiss motorcycle platform for renting and selling bikes with Sanity CMS, dynamic listings, filtering, inquiry forms with photo uploads, and production-grade SEO (metadata, schema.org JSON-LD, sitemap/robots, and performance optimizations).",
-  image: "/projects/django_rest_es.png",
-  techUsed: [
-    "Next.js",
-    "Sanity CMS",
-    "TypeScript",
-    "Vercel",
-    "Cloudflare",
-    "SEO",
-    "Resend (Email notifications)"
-  ],
-  repo: "https://github.com/taskovikj/motomak",
-  highlight: "Production Web App (SEO-focused)"
-},
-
-        {
-            "title": "Storage Management App",
-            "description": "A robust storage management application designed for businesses of all sizes. It features comprehensive inventory tracking, multi-location support, real-time analytics, and granular user access control, streamlining warehouse operations and optimizing space utilization.",
-            "image": "/projects/lager.png",
-            "techUsed": ["Django", "Bootstrap", "Axios", "MySQL"],
-            "repo": "https://github.com/taskovikj/",
-            "highlight": "Featured Project"
-        },
-        {
-            "title": "NewsClustering App",
-            "description": "Aggregator website that scrapes articles from multiple sources, mapping them into custom categories. It features a comprehensive PDF and video archive, alongside a bespoke blog page.",
-            "image": "/projects/mnm.png",
-            "techUsed": ["Django", "Bootstrap", "Axios", "MySQL"],
-            "repo": "https://github.com/yourusername/newcluster",
-            "highlight": "Featured Project"
-        },
-        {
-            "title": "BlogPlatform",
-            "description": "A feature-rich blogging platform with REST API support and full-text search using Elasticsearch. Includes user authentication, custom front page, social features (follow/unfollow), comments, email notifications, and advanced search capabilities.",
-            "image": "/projects/django_rest_es.png",
-            "techUsed": [
-                "Django",
-                "Django REST Framework",
-                "Elasticsearch",
-                "Docker",
-                "PostgreSQL",
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "GitHub Actions",
-                "Selenium"
-            ],
-            "repo": "https://github.com/taskovikj/django_rest_es",
-            "highlight": "Full-Stack Searchable Blog"
-        },
-
-    ] as Project[],
-    profileImage: "/profile_picture.jpg",
+    featuredProjects,
+    projects,
+    profileImage: '/profile_picture.jpg',
     about: {
         summary:
-            "I’ve worked on building and improving software systems that are reliable and easy to scale. Lately, I’ve become very interested in data science and machine learning, and I’ve been involved in projects that use data to solve real problems. I enjoy learning new things, solving challenges, and building useful software.",
-        skills: [
-            {
-                title: "Backend Development",
-                description: "Django, Spring Boot, SQL, Docker, Elasticsearch",
-            },
-            {
-                title: "Data Science & Machine Learning",
-                description: "PyTorch, Pandas, Scikit-learn, TensorFlow,PowerBI, NumPy",
-            },
-            {
-                title: "Programming Languages",
-                description: "Python, Java, C, C++, Java Script",
-            },
-            {
-                title: "Frontend Technologies",
-                description: "Angular, React, Vue.js",
-            },
-        ] as Skill[],
+            'I have worked on software systems that need to be reliable, searchable, and easy to operate. My recent projects include self-hosted deployment tooling, Swiss data products, content automation systems, production websites, and data science analysis. I enjoy building tools that connect clean backend architecture with useful interfaces.',
+        skills,
     },
     workExperience: [
         {
-            role: "Software Engineer Intern",
-            company: "Marketing Platform by Link Mobility",
-            period: "Jul 2023 – Oct 2023",
+            role: 'Freelance Software Engineer',
+            company: 'Self-Employed',
+            period: 'Nov 2023 - Present',
             details: [
-                "Developed and tested web applications using Python, Django, Postgres, Elasticsearch, Docker, Selenium, HTML, CSS, JavaScript, and machine learning.",
-
-                "Ensured code quality via automated testing and best practices.",
+                'Build custom web applications, automation dashboards, and data products using Python, Django/FastAPI, Docker, SQL databases, and TypeScript frontends.',
+                'Recent work includes Swiss data products, motorcycle marketplace features, Facebook content automation, and open-source deployment tooling.',
             ],
         },
         {
-            role: "Freelance Software Engineer",
-            company: "Self-Employed",
-            period: "Nov 2023 – Present",
+            role: 'Software Engineer Intern',
+            company: 'Marketing Platform by LINK Mobility - Kumanovo, North Macedonia',
+            period: 'Jul 2023 - Oct 2023',
             details: [
-                "Building custom solutions for clients using Python, Django, Docker, Postgres, and other modern technologies.",
-                "Web development for small businesses.",
-
+                'Contributed to backend service development with Django, PostgreSQL, and Elasticsearch.',
+                'Implemented automated unit and integration tests and supported clean architecture practices.',
             ],
         },
-
     ] as Experience[],
     certifications: [
         {
-            title: "Python for Big Data Processing",
-            level: "Certificate",
-            link: "/certificates/6467724370TB.pdf",
+            title: 'Python for Big Data Processing',
+            level: 'Certificate',
+            link: '/certificates/6467724370TB.pdf',
         },
         {
-            title: "Deep Learning with TensorFlow and PyTorch",
-            level: "Certificate",
-            link: "/certificates/4724193460TB.pdf",
+            title: 'Deep Learning with TensorFlow and PyTorch',
+            level: 'Certificate',
+            link: '/certificates/4724193460TB.pdf',
         },
         {
-            title: "High-Performance Computing in Distributed Systems (MPI)",
-            level: "Certificate",
-            link: "/certificates/4347401120TB.pdf",
+            title: 'High-Performance Computing in Distributed Systems (MPI)',
+            level: 'Certificate',
+            link: '/certificates/4347401120TB.pdf',
         },
         {
-            title: "Introduction to High-Performance Big Data Processing",
-            level: "Certificate",
-            link: "/certificates/1646894024TB.pdf",
+            title: 'Introduction to High-Performance Big Data Processing',
+            level: 'Certificate',
+            link: '/certificates/1646894024TB.pdf',
         },
         {
-            title: "HPC in Assistive Technologies",
-            level: "Certificate",
-            link: "/certificates/8564917775TB.pdf",
+            title: 'HPC in Assistive Technologies',
+            level: 'Certificate',
+            link: '/certificates/8564917775TB.pdf',
         },
         {
-            title: "Map/Reduce (Hadoop, Spark, Flink)",
-            level: "Certificate",
-            link: "/certificates/2574379464TB.pdf",
+            title: 'Map/Reduce (Hadoop, Spark, Flink)',
+            level: 'Certificate',
+            link: '/certificates/2574379464TB.pdf',
         },
     ] as Certification[],
     education: [
         {
-            degree: "B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems",
-            institution: "Facility of computer science and engineering-Skopje",
-            period: "2020 - 2025",
+            degree: 'B.Sc. in Computer Science & Computer Engineering - Software Engineering and Information Systems',
+            institution: 'Faculty of Computer Science and Engineering, Skopje',
+            period: '2020 - 2025',
         },
     ] as Education[],
     personalInterests:
-        "In my free time, I enjoy experimenting with machine learning models, exploring data science tools, reading about backend optimization techniques. I also like gaming from time to time, watching basketball, and following eSports tournaments.",
-};
+        'In my free time, I enjoy experimenting with machine learning models, exploring data science tools, reading about backend optimization techniques, gaming from time to time, watching basketball, and following eSports tournaments.',
+}
