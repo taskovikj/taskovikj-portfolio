@@ -56,7 +56,7 @@ const featuredProjects: Project[] = [
         title: 'Dockio',
         description:
             'Open-source self-hosted VPS deployment panel for Git, Docker image, and Docker Compose deployments. It includes GitHub App repository deploys, Caddy routing, managed databases, runtime logs, health checks, firewall helpers, deployment history, and audit logs.',
-        image: '/projects/dockio_showcase.png',
+        image: '/projects/dockio_imagegen.png',
         techUsed: ['Next.js', 'TypeScript', 'Docker', 'Caddy', 'Linux', 'GitHub App', 'Systemd'],
         repo: 'https://github.com/taskovikj/supavibe-panel',
         preview: 'https://dockio.dev',
@@ -66,7 +66,7 @@ const featuredProjects: Project[] = [
         title: 'AutoTyp.ch',
         description:
             'Swiss vehicle type approval and Typenschein lookup product built around 220,000+ ASTRA records, technical vehicle data, multilingual guide pages, and canton-level tax-estimate workflows.',
-        image: '/projects/autotyp_showcase.png',
+        image: '/projects/autotyp_imagegen.png',
         techUsed: ['Next.js', 'TypeScript', 'Swiss Open Data', 'SEO', 'Data Modeling'],
         preview: 'https://autotyp.ch',
         highlight: 'Swiss Data Product',
@@ -75,7 +75,7 @@ const featuredProjects: Project[] = [
         title: 'Facebook Content Automation Dashboard',
         description:
             'Local-first dashboard for Facebook page profiles, topic queues, OpenAI-assisted scripts, TTS, transcription, subtitle generation, ffmpeg video rendering, scheduling, retryable Meta publishing queues, logs, and health checks.',
-        image: '/projects/facebook_automation_showcase.png',
+        image: '/projects/facebook_automation_imagegen.png',
         techUsed: ['FastAPI', 'SQLite', 'APScheduler', 'OpenAI', 'Meta Graph API', 'ffmpeg'],
         repo: 'https://github.com/taskovikj/facebook-content-automation-dashboard',
         highlight: 'Automation System',
@@ -88,7 +88,7 @@ const projects: Project[] = [
         title: 'SwissDataMCP',
         description:
             'Local MCP server for source-grounded Swiss open-data discovery, DuckDB analytics, dataset loading, charts, interactive reports, and citation packs for agent workflows.',
-        image: '/projects/swissdatamcp_showcase.png',
+        image: '/projects/swissdatamcp_imagegen.png',
         techUsed: ['Python', 'MCP', 'DuckDB', 'Pandas', 'Plotly', 'Matplotlib'],
         repo: 'https://github.com/taskovikj/swiss-open-data-mcp',
         highlight: 'Open Data Tooling',
@@ -140,7 +140,7 @@ const projects: Project[] = [
         title: 'Motomak.ch',
         description:
             'Swiss motorcycle rental and sales platform with Sanity CMS, dynamic listings, filtering, inquiry forms with photo uploads, email notifications, structured metadata, sitemap/robots, and production SEO.',
-        image: '/projects/motomak_showcase.png',
+        image: '/projects/motomak_imagegen.png',
         techUsed: ['Next.js', 'Sanity CMS', 'TypeScript', 'Vercel', 'Cloudflare', 'SEO', 'Resend'],
         repo: 'https://github.com/taskovikj/motomak',
         preview: 'https://motomak.ch',
