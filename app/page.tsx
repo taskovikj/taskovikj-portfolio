@@ -3,12 +3,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { FaDownload } from 'react-icons/fa'
 import { userData } from '@/data/userData'
 import ProjectCard from '@/components/ProjectCard'
+
+const cvOptions = [
+    {
+        label: 'English CV',
+        href: '/Branislav_Taskovikj_CV_EN.pdf',
+        filename: 'Branislav_Taskovikj_CV_EN.pdf',
+    },
+    {
+        label: 'German CV',
+        href: '/Branislav_Taskovikj_CV_DE.pdf',
+        filename: 'Branislav_Taskovikj_CV_DE.pdf',
+    },
+]
 
 export default function Home() {
     const { theme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [isCvMenuOpen, setIsCvMenuOpen] = useState(false)
 
     useEffect(() => {
         setMounted(true)
@@ -16,10 +31,16 @@ export default function Home() {
 
     const isDark = !mounted || theme === 'dark'
     const bgClass = isDark ? 'bg-black text-white' : 'bg-white text-black'
-    const btnBase = 'px-6 py-3 rounded-full font-semibold transition transform hover:scale-105'
+    const btnBase = 'inline-flex h-12 items-center justify-center gap-2 rounded-full px-6 font-semibold transition transform hover:scale-105'
     const btnPrimary = isDark
         ? 'bg-gray-700 text-white hover:bg-gray-600'
         : 'bg-gray-200 text-black hover:bg-gray-300'
+    const menuClass = isDark
+        ? 'bg-gray-900 text-white border-gray-700'
+        : 'bg-white text-black border-gray-200'
+    const menuItemClass = isDark
+        ? 'hover:bg-gray-800'
+        : 'hover:bg-gray-100'
 
     // For the card-like background behind Background & Skills
     const cardBg = isDark ? 'bg-gray-800 text-gray-400' : 'bg-gray-100 text-gray-700'
@@ -45,13 +66,41 @@ export default function Home() {
                 <h2 className="text-xl text-gray-500 mb-8">
                     {userData.title}
                 </h2>
-                <div className="space-x-4">
+                <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                     <Link href="/contact" className={`${btnBase} ${btnPrimary}`}>
                         Hire Me
                     </Link>
-                    <Link href="/Branislav_Taskovikj_CV.pdf" download className={`${btnBase} ${btnPrimary}`}>
-                        Download CV
-                    </Link>
+                    <div className="relative">
+                        <button
+                            type="button"
+                            onClick={() => setIsCvMenuOpen((isOpen) => !isOpen)}
+                            className={`${btnBase} ${btnPrimary}`}
+                            aria-expanded={isCvMenuOpen}
+                            aria-haspopup="menu"
+                        >
+                            <FaDownload className="shrink-0" />
+                            Download CV
+                        </button>
+                        {isCvMenuOpen && (
+                            <div
+                                className={`absolute left-1/2 z-20 mt-2 w-52 -translate-x-1/2 overflow-hidden rounded-lg border shadow-xl ${menuClass}`}
+                                role="menu"
+                            >
+                                {cvOptions.map((cv) => (
+                                    <Link
+                                        key={cv.href}
+                                        href={cv.href}
+                                        download={cv.filename}
+                                        className={`block px-4 py-3 text-sm font-semibold transition ${menuItemClass}`}
+                                        role="menuitem"
+                                        onClick={() => setIsCvMenuOpen(false)}
+                                    >
+                                        {cv.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </section>
 
