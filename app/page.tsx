@@ -49,7 +49,7 @@ export default function Home() {
         <div className={`flex flex-col items-center justify-center min-h-screen ${bgClass}`}>
             {/* Hero Section */}
             <section
-                className="max-w-5xl w-full py-16 flex flex-col items-center text-center fade-in-up"
+                className="relative z-30 max-w-5xl w-full py-16 flex flex-col items-center text-center fade-in-up"
                 style={{ animationDelay: '0.2s' }}
             >
                 <div className="mb-6 w-40 h-40 relative rounded-full overflow-hidden shadow-lg">
@@ -83,7 +83,7 @@ export default function Home() {
                         </button>
                         {isCvMenuOpen && (
                             <div
-                                className={`absolute left-1/2 z-20 mt-2 w-52 -translate-x-1/2 overflow-hidden rounded-lg border shadow-xl ${menuClass}`}
+                                className={`absolute left-1/2 z-50 mt-2 w-52 -translate-x-1/2 overflow-hidden rounded-lg border shadow-xl ${menuClass}`}
                                 role="menu"
                             >
                                 {cvOptions.map((cv) => (
