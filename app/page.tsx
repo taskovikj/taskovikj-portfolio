@@ -54,8 +54,8 @@ export default function Home() {
             >
                 <div className="mb-6 w-40 h-40 relative rounded-full overflow-hidden shadow-lg">
                     <Image
-                        src="/profile_picture.jpg"
-                        alt="Profile Photo"
+                        src={userData.profileImage}
+                        alt="Portrait of Branislav Taskovikj"
                         fill
                         className="object-cover object-top"
                     />

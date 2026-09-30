@@ -166,7 +166,7 @@ export const userData = {
     },
     featuredProjects,
     projects,
-    profileImage: '/profile_picture.jpg',
+    profileImage: '/profile/cv_photo_framed.png',
     about: {
         summary:
             'I have worked on software systems that need to be reliable, searchable, and easy to operate. My recent projects include self-hosted deployment tooling, Swiss data products, content automation systems, production websites, and data science analysis. I enjoy building tools that connect clean backend architecture with useful interfaces.',

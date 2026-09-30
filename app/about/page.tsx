@@ -30,7 +30,7 @@ export default function AboutPage() {
                 <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-4 mx-auto">
                     <Image
                         src={userData.profileImage}
-                        alt="Profile Photo"
+                        alt="Portrait of Branislav Taskovikj"
                         fill
                         className="object-cover object-top"
                     />
